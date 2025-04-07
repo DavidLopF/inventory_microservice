@@ -1,4 +1,8 @@
 package co.corp.linktic.inventory.dto;
 
-public class ResponseService {
+import lombok.Data;
+
+@Data
+public class ResponseService<T> {
+    private T data;
 }

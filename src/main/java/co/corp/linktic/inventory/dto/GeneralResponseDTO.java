@@ -1,4 +1,4 @@
-package co.corp.linktic.productservice.dto;
+package co.corp.linktic.inventory.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;

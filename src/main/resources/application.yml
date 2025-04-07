@@ -1,0 +1,53 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    #url: jdbc:postgresql://localhost:5433/productdb
+    url: jdbc:postgresql://host.docker.internal:5433/productdb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+security:
+  api-key: 8148033f3cbd041dc2c065fe64ce695b0d2a59661afbf38409031e79bb7452ff
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: warn
+        type:
+          descriptor:
+            sql:
+              BasicBinder: warn
+    org.hibernate.orm.connections.pooling: WARN
+    com.zaxxer.hikari: WARN
+aws:
+  access-key: ${AWS_ACCESS_KEY_ID}
+  secret-key: ${AWS_SECRET_ACCESS_KEY}
+  region: ${AWS_REGION}
+  s3:
+    bucket: ${AWS_BUCKET_NAME}
+    endpoint: ${AWS_ENDPOINT}
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha
+
+product:
+  service:
+    url: ${PRODUCT_SERVICE_URL:http://localhost:8081}

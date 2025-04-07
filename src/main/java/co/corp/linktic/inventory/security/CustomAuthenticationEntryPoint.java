@@ -1,4 +1,4 @@
-package security;
+package co.corp.linktic.inventory.security;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
